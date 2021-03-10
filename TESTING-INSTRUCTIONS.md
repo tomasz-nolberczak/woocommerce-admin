@@ -7,6 +7,23 @@
 1. Enable the new navigation.
 2. Shorten your viewport height so that the secondary menu overlaps the main.
 3. Make sure the menu title can still be seen.
+=======
+### Update Insight inbox message #6555
+
+
+1. Checkout this branch.
+2. Update the installation date of your store if it hasn't been at least a day. You can use the following SQL uqery.
+
+```
+UPDATE `wp_options` SET `option_value`=UNIX_TIMESTAMP(DATE_SUB(NOW(), INTERVAL 5 day)) WHERE `option_name` = 'woocommerce_admin_install_timestamp';
+```
+
+3. Install & activate [WP Crontrol](https://wordpress.org/plugins/wp-crontrol/) plugin
+4. Navigate to Tools -> Cron Events
+5. Run `wc_admin_daily` job
+6. Navigate to WooCommerce -> Home and confirm the Insight note.
+
+
 ### Use wc filter to get status tabs for tools category #6525
 
 1. Register a new tab via the filter.
