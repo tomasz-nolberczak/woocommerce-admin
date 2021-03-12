@@ -1,6 +1,7 @@
 import { Page } from 'puppeteer';
 import { setCheckbox, unsetCheckbox } from '@woocommerce/e2e-utils';
 import { DropdownField } from '../DropdownField';
+import { waitForElementByText } from '../../utils/actions';
 
 export class BusinessSection {
 	page: Page;
@@ -11,18 +12,16 @@ export class BusinessSection {
 		this.page = page;
 		this.howManyProductsDropdown = new DropdownField(
 			page,
-			':nth-match(.woocommerce-select-control, 1)'
+			'.components-card__body > div:nth-child(1)'
 		);
 		this.sellingElsewhereDropdown = new DropdownField(
 			page,
-			':nth-match(.woocommerce-select-control, 2)'
+			'.components-card__body > div:nth-child(2)'
 		);
 	}
 
 	async isDisplayed() {
-		await this.page.waitForSelector(
-			':text("Tell us about your business")'
-		);
+		await waitForElementByText( 'h2', 'Tell us about your business' );
 	}
 
 	async selectProductNumber( productLabel: string ) {
@@ -47,8 +46,11 @@ export class BusinessSection {
 		await this.page.click( expandButtonSelector );
 
 		// Confirm that expanding the list shows all the extensions available to install.
-		await this.page.waitForSelector(
-			':nth-match(.components-checkbox-control__input, 8)'
+		await this.page.waitForFunction(
+			() =>
+				document.querySelectorAll(
+					'.components-checkbox-control__input'
+				).length > 7
 		);
 	}
 
