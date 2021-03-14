@@ -75,6 +75,9 @@ Release and roadmap notes are available on the [WooCommerce Developers Blog](htt
 
 == Unreleased ==
 
+- Fix: Allow the manager role to query certain options #6577
+- Fix: Fix hidden menu title on smaller screens #6562
+- Fix: Add gross sales column to CSV export #6567
 - Dev: Add nav intro modal tests #6518
 - Dev: Use wc filter to get status tabs for tools category #6525
 - Tweak: Remove mobile activity panel toggle #6539
@@ -110,6 +113,11 @@ Release and roadmap notes are available on the [WooCommerce Developers Blog](htt
 - Dev: Store profiler - Added MailPoet to Business Details step  #6503
 - Dev: Store profiler - Added MailPoet to new Business Details step  #6515
 - Dev: Add tilde (~) to represent client root directory for imports. #6517
+- Add: Add Ireland to Square payment method #6559
+- Add: CES survey for search product, order, customer #6420
+- Add: CES survey for importing products #6419
+- Add: CES survey for adding product categories, tags, and attributes #6418
+- Fix: Correct a bug where the JP connection flow would not happen when installing JP in the OBW. #6521
 - Dev: Introduce Typescript to Navigation utils #6477
 
 == 2.1.0 3/10/2021  ==
